@@ -11,15 +11,15 @@ function writePassword() {
 }
 
 function generatePassword() {
-
+var password = '';
 // Set up an array for each of four sets of characters that can be selected by the user for inclusion in the password.
 var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var sym = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "?", "~"];
-
+// Ask the user to select a length for the password.
 var pwLength = prompt("How long would you like your password to be? Please enter a number between 8 and 128.");
-
+// Ask the user if they want to include lowercase letters in their password. If yes, add the set of lowercase letters to a temporary array.
 var lowerPrompt = prompt("Would you like your password to contain lowercase letters? Please enter yes or no.");    
   lowerPrompt = lowerPrompt.toLowerCase();
   if (lowerPrompt === "yes") {
@@ -58,10 +58,12 @@ var symPrompt = prompt("Would you like your password to contain symbols? Please 
 
 master = Array.from(tempArray4);
 
-for (i = 0; i < master.length; i++) {
-  console.log(master[i]);
-};
-
+for (i = 0; i <= pwLength; i++) {
+    mstrLength = master.length;
+    randomCharacter = Math.floor((Math.random() * mstrLength)+1);
+    password = password + master[randomCharacter];
+  }
+ return password;
 }
       
 // Add event listener to generate button
