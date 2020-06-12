@@ -58,11 +58,17 @@ var symPrompt = prompt("Would you like your password to contain symbols? Please 
 
 master = Array.from(tempArray4);
 
+if (pwLength > 7 && pwLength < 129 && master.length > 0) {
 for (i = 0; i <= pwLength; i++) {
     mstrLength = master.length;
-    randomCharacter = Math.floor((Math.random() * mstrLength)+1);
+    randomCharacter = Math.floor(Math.random() * mstrLength);
     password = password + master[randomCharacter];
-  }
+  };
+return password;
+}
+else {
+  alert("Please try again. Make sure to allow at least one character type and to specify a length between 8 and 128 characters.");
+};
  return password;
 }
       
